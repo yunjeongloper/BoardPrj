@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dev.test.dao.BoardDao">
+
+    <select id="selectAllContents" resultType="Board">
+        SELECT * FROM board
+    </select>
+
+    <select id="selectOneContent" resultType="Board" parameterType="Board">
+        SELECT * FROM board
+        WHERE idx = #{idx}
+    </select>
+
+    <insert id="insertContent" parameterType="Board">
+        INSERT INTO board(title, content, writer, password) VALUES(
+        #{title},
+        #{content},
+        #{writer},
+        #{password}
+        )
+    </insert>
+
+    <update id="updateContent" parameterType="Board">
+        UPDATE board
+        SET content = #{content}
+        WHERE password = #{password}
+    </update>
+
+    <delete id="deleteContent" parameterType="Board">
+        DELETE FROM board
+        WHERE password = #{password} AND
+              idx = #{idx}
+    </delete>
+
+</mapper>

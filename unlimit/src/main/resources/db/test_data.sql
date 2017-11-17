@@ -1,0 +1,1 @@
+INSERT INTO board(title, content, writer, password) values ('테스트1','내용1','글쓴이1','1234');
